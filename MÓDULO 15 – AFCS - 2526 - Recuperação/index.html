@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sedentarismo na Era Digital – Dashboard da Turma</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header>
+    <h1>Sedentarismo na Era Digital</h1>
+    <p class="sub">Dashboard dos hábitos diários dos alunos da turma · Módulo 15 – Atividade Física/Contextos e Saúde</p>
+  </header>
+
+  <main>
+
+    <!-- INDICADORES (preenchidos pelo JavaScript) -->
+    <section id="indicadores" class="grid"></section>
+
+    <!-- GRÁFICOS (preenchidos pelo JavaScript) -->
+    <section class="grid graficos">
+      <article class="card">
+        <h2>Tempo de ecrã (h/dia)</h2>
+        <div id="grafico-ecra"></div>
+      </article>
+
+      <article class="card">
+        <h2>Atividade física (min/dia) <small>· meta OMS: 60</small></h2>
+        <div id="grafico-atividade"></div>
+      </article>
+
+      <article class="card">
+        <h2>Horas de sono (h/noite)</h2>
+        <div id="grafico-sono"></div>
+      </article>
+
+      <article class="card">
+        <h2>Perfil da turma</h2>
+        <div id="grafico-perfil"></div>
+      </article>
+    </section>
+
+    <!-- FORMULÁRIO DE NOVO REGISTO -->
+    <section class="card">
+      <h2>Adicionar registo</h2>
+
+      <div class="formulario">
+        <div>
+          <label for="nome">Nome/código</label>
+          <input id="nome" type="text" placeholder="Aluno 13">
+        </div>
+        <div>
+          <label for="ecra">Ecrã (h/dia)</label>
+          <input id="ecra" type="number" min="0" max="24" step="0.5">
+        </div>
+        <div>
+          <label for="atividade">Atividade (min/dia)</label>
+          <input id="atividade" type="number" min="0" max="600">
+        </div>
+        <div>
+          <label for="sono">Sono (h)</label>
+          <input id="sono" type="number" min="0" max="14" step="0.5">
+        </div>
+        <div>
+          <label for="passos">Passos/dia</label>
+          <input id="passos" type="number" min="0" max="40000" step="500">
+        </div>
+      </div>
+
+      <div class="botoes">
+        <button id="btn-adicionar">Adicionar</button>
+        <button id="btn-importar" class="secundario">Importar CSV</button>
+        <button id="btn-exportar" class="secundario">Exportar CSV</button>
+        <button id="btn-exemplo" class="secundario">Repor dados de exemplo</button>
+        <input id="ficheiro-csv" type="file" accept=".csv" hidden>
+      </div>
+
+      <small>Formato CSV: nome,ecra,atividade,sono,passos (com cabeçalho). Os dados são anónimos e ficam apenas no teu navegador.</small>
+    </section>
+
+    <!-- TABELA DE REGISTOS -->
+    <section class="card">
+      <h2>Registos</h2>
+      <div class="tabela-scroll">
+        <table id="tabela"></table>
+      </div>
+    </section>
+
+    <p class="nota">
+      Dados iniciais fictícios, apenas para demonstração. A OMS recomenda, em média,
+      60 min/dia de atividade física moderada a vigorosa para jovens dos 5 aos 17 anos.
+    </p>
+
+  </main>
+
+  <!-- RODAPÉ: identificação (preenche com os teus dados) -->
+  <footer>
+    <p><strong>Trabalho realizado por:</strong> O Teu Nome (n.º X)</p>
+    <p><strong>Turma:</strong> 12.º X · <strong>Curso:</strong> T.D. de Software</p>
+    <p><strong>Escola:</strong> Nome da Escola · <strong>Ano letivo:</strong> 2025/26</p>
+    <p><strong>Disciplina:</strong> Educação Física · Módulo 15 – Atividade Física/Contextos e Saúde</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

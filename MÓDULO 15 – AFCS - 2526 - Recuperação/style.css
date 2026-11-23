@@ -1,0 +1,211 @@
+/* ===== CORES (variáveis) ===== */
+:root {
+  --fundo: #f4f6fb;
+  --cartao: #ffffff;
+  --texto: #1b1f2a;
+  --texto-suave: #667085;
+  --borda: #e3e7f0;
+  --principal: #2f6fed;
+  --verde: #1f9d6b;
+  --laranja: #e08a00;
+  --vermelho: #d64545;
+  --sombra: 0 2px 10px rgba(20, 30, 60, 0.07);
+}
+
+/* Modo escuro automático */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #12141b;
+    --cartao: #1b1e28;
+    --texto: #eceef5;
+    --texto-suave: #9aa0b5;
+    --borda: #2c3040;
+    --principal: #6b9bff;
+    --verde: #3ec78f;
+    --laranja: #f0a62e;
+    --vermelho: #f06a6a;
+    --sombra: none;
+  }
+}
+
+/* ===== BASE ===== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+h1 { margin: 0 0 4px; font-size: 1.8rem; }
+h2 { margin: 0 0 12px; font-size: 1.05rem; }
+small { color: var(--texto-suave); }
+
+/* ===== CABEÇALHO ===== */
+header {
+  background: linear-gradient(135deg, #2f6fed, #7a4fe0);
+  color: #fff;
+  padding: 28px 16px;
+  text-align: center;
+}
+header .sub { margin: 0; opacity: 0.9; }
+
+/* ===== LAYOUT ===== */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin-bottom: 14px;
+}
+
+.grid.graficos {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* ===== CARTÕES ===== */
+.card {
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: var(--sombra);
+  margin-bottom: 14px;
+}
+.grid .card { margin-bottom: 0; }
+
+/* Indicadores (números grandes) */
+.indicador { text-align: center; }
+.indicador b {
+  display: block;
+  font-size: 1.9rem;
+  color: var(--principal);
+}
+.indicador span { color: var(--texto-suave); font-size: 0.85rem; }
+
+/* ===== BARRAS DOS GRÁFICOS ===== */
+.linha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+  font-size: 0.9rem;
+}
+.linha .nome {
+  width: 85px;
+  flex: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.linha .valor {
+  width: 58px;
+  flex: none;
+  text-align: right;
+  color: var(--texto-suave);
+}
+.barra {
+  flex: 1;
+  height: 14px;
+  background: var(--borda);
+  border-radius: 7px;
+  overflow: hidden;
+}
+.barra i {
+  display: block;
+  height: 100%;
+  border-radius: 7px;
+  transition: width 0.4s;
+}
+
+/* ===== FORMULÁRIO ===== */
+.formulario {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+label {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+input {
+  width: 100%;
+  padding: 8px 10px;
+  font: inherit;
+  color: var(--texto);
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+}
+input:focus {
+  outline: 2px solid var(--principal);
+  border-color: transparent;
+}
+
+/* ===== BOTÕES ===== */
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 8px;
+}
+button {
+  padding: 8px 14px;
+  font: inherit;
+  color: #fff;
+  background: var(--principal);
+  border: 1px solid var(--principal);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+button:hover { opacity: 0.85; }
+button.secundario {
+  background: transparent;
+  color: var(--principal);
+}
+
+/* ===== TABELA ===== */
+.tabela-scroll { overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+th, td {
+  padding: 8px 10px;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--borda);
+}
+th { color: var(--texto-suave); font-weight: 600; }
+
+.etiqueta {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  color: #fff;
+}
+
+/* ===== RODAPÉ E NOTAS ===== */
+.nota { color: var(--texto-suave); font-size: 0.85rem; }
+
+footer {
+  margin-top: 20px;
+  padding: 20px 16px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  border-top: 1px solid var(--borda);
+}
+footer p { margin: 2px 0; }
